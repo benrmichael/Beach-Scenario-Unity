@@ -1,0 +1,8 @@
+[11/10/2023 10:53:48 AM] Things.
+
+[11/10/2023 11:10:17 AM] Percentage of time looking at object: 0.00 %.
+Times eye contact was broken: 0.
+
+[11/15/2023 5:36:14 PM] Percentage of time looking at object: 2.65 %.
+Times eye contact was broken: 19.
+
