@@ -11,10 +11,13 @@ public class StartVideo : MonoBehaviour
 {
     //flag for if the user said "Start"
     private bool startSaid = false;
+
     //flag for if the user looked at the sphere to start the program
     public static bool gazeStart = false;
+
     //flag for if the video has been started
     private bool started = false;
+
     // flag for the button
     public static bool startedViaButton = false;
 
@@ -43,7 +46,6 @@ public class StartVideo : MonoBehaviour
         video = this.gameObject.GetComponent<VideoPlayer>();
         video.prepareCompleted += VideoPrepared;
         video.Prepare();
-        //video.Stop();
     }
 
     void VideoPrepared(VideoPlayer vp) 
@@ -77,12 +79,22 @@ public class StartVideo : MonoBehaviour
 
     void beginVideo()
     {
+	DestroyObjects();
+
+
         //indicate that the video has been started, hide the instructions, and reveal the ball; start the video
         started = true;
-        GameObject Instructions = GameObject.Find("Instructions");
-        Instructions.SetActive(false);
         ball.SetActive(true);
 
         this.video.Play();
     }
+
+	private void DestroyObjects()
+	{
+		GameObject introObject = GameObject.Find("IntroObjs");
+        	if (introObject != null)
+        	{
+        	    DestroyImmediate(introObject);
+        	}
+	}
 }

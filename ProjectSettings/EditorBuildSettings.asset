@@ -9,6 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BeachScene.unity
     guid: e0c9f88ad84309646a5437f8e63e6cd7
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6d0738b043202d442b61af88f81e9f2a, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 13285525f8e7b824e97133264e54e450, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1f309f1d172853c49bceec3b71fb1fca, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7afa39396dfe8d6498dcd5200cbbea34, type: 2}
