@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: String Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 221fd941194cf1743aee27643b7bbd55, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 9324068864
+    m_Localized: 'Thank you for being a part of this trial. In the game you will
+      see a Sphere like the one to the right.
+
+
+      This Sphere detects your gaze.
+      Try looking at it to see the color change. Green means you are looking, red
+      means you are not.
+
+
+      Your job will be to follow the sphere with your
+      eyes as best you can. Let our team member know you when you are ready.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997545832742912
+    m_Localized: 'Percentage of time looking at object: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997585594744832
+    m_Localized: 'Times eye contact was broken: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001633945354240
+    m_Localized: 'Results:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001652685504512
+    m_Localized: Great job!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

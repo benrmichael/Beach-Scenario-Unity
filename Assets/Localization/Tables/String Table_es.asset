@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: String Table_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 221fd941194cf1743aee27643b7bbd55, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 9324068864
+    m_Localized: "Gracias por ser parte de esta prueba. En el juego ver\xE1s una
+      Esfera como la de la derecha.\r\n\r\nEsta Esfera detecta tu mirada. Intente
+      mirarlo para ver el cambio de color. Verde significa que est\xE1s mirando,
+      rojo significa que no est\xE1s mirando.\r\n\r\nTu trabajo ser\xE1 seguir la
+      esfera con la vista lo mejor que puedas. Informe a nuestro miembro del equipo
+      cuando est\xE9 listo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997545832742912
+    m_Localized: 'Porcentaje de tiempo mirando el objeto: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 997585594744832
+    m_Localized: "Veces que se rompi\xF3 el contacto visual: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001633945354240
+    m_Localized: 'Resultados:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001652685504512
+    m_Localized: "\xA1Gran trabajo!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
