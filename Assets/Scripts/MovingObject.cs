@@ -13,13 +13,6 @@ public class MovingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the video has ended, if it has, hide the ball
-        if (RevealConceal.revealed)
-        {
-            this.gameObject.SetActive(false);
-            return;
-        }
-
         // Gets x, y, z coordinates for object ==> even though we only use the x??
         float x = this.gameObject.transform.position.x;
         float y = this.gameObject.transform.position.y;

@@ -2,67 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.G2OM;
+using UnityEngine.Localization.Settings;
 using UnityEngine.Video;
 
 //records time that the user spends looking at object, displays it at the end of the application
 public class GazeCheck : MonoBehaviour, IGazeFocusable
 {
-    //variables
+    public delegate void DataCollectionEventHandler(string eyeTrackingData);
+    public static event DataCollectionEventHandler OnDataCollectionComplete;
+    
     private bool prevGazeFlag = false;
-    //num times user stopped looking at the object
+   
     private int countLoseFocus = 0;
-    private VideoPlayer video;
     private double timeLookedAt = 0;
-    //total time spent looking at object
     private double totalTime = 0;
-    //total duration of video (375 seconds/6 minutes and 15 seconds)
     private const double totalDuration = 375.00;
-    //used to change the color of the object
-    private Renderer SphereRenderer;
+
+    [SerializeField] public Renderer sphereRenderer;
+    [SerializeField] public VideoPlayer videoPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        //set color to red and set score once the video is over
-        SphereRenderer = this.gameObject.GetComponent<Renderer>();
-        SphereRenderer.material.SetColor("_Color", Color.red);
-        video = GameObject.Find("Video Player").GetComponent<VideoPlayer>();
-        video.loopPointReached += setScore;
+        sphereRenderer.material.SetColor("_Color", Color.red);
+        videoPlayer.loopPointReached += VideoOver;
     }
 
-    private void setScore(UnityEngine.Video.VideoPlayer vp)
-    {
-
-        Debug.Log("Entered the setScore function.");
-
-        //calculate % of time spent looking at object and display it in the scene
+    // Method called when the video has ended. Invoke the event listener in ScenarioLifeCycleManager
+    private void VideoOver(VideoPlayer vp)
+    { 
+        // Calculates the percent time spent tracking the object
         double averageTime = totalTime / totalDuration;
 
-        string eyeTrackingData = string.Format("Percentage of time looking at object: {0:P2}.", averageTime) + "\nTimes eye contact was broken: " + countLoseFocus.ToString() + ".\n";
+        string firstPart = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("dataPartOne").Result;
+        string secondPart = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("dataPartTwo").Result;
 
-        RevealConceal.logText = "[" + System.DateTime.Now + "]" + " " + eyeTrackingData;
-        RevealConceal.text = eyeTrackingData;
+        string eyeTrackingData = string.Format(firstPart + " {0:P2}.", averageTime) + "\n" + secondPart + countLoseFocus.ToString() + "\n";
+        //string eyeTrackingData = string.Format("Percentage of time looking at object: {0:P2}.", averageTime) + "\nTimes eye contact was broken: " + countLoseFocus.ToString() + ".\n";
 
-        Debug.Log("Time Looked At: " + averageTime.ToString());
-        Debug.Log("Gaze Break Count: " + countLoseFocus.ToString());
+        OnDataCollectionComplete?.Invoke(eyeTrackingData);
     }
 
+
+    // Method used for eye tracking data collection
     public void GazeFocusChanged(bool hasFocus)
     {
         if (hasFocus) //if the user is looking at the object, set color to green and record time the object was looked at
         {
-            timeLookedAt = video.time;
-            SphereRenderer.material.SetColor("_Color", Color.green);
+            timeLookedAt = videoPlayer.time;
+            sphereRenderer.material.SetColor("_Color", Color.green);
         }
         else //if user is no longer looking at object set color to red
         {
-            SphereRenderer.material.SetColor("_Color", Color.red);
+            sphereRenderer.material.SetColor("_Color", Color.red);
         }
 
         if (!hasFocus && prevGazeFlag && timeLookedAt != 0) 
         {
             //if the user is no longer looking at the object and there was a recorded time that they looked at the object, then add the time spent looking at the object to the total
-            totalTime += video.time - timeLookedAt;
+            totalTime += videoPlayer.time - timeLookedAt;
         }
         if (!hasFocus && prevGazeFlag)
         {

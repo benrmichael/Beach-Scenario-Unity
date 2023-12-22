@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -79,9 +79,6 @@ public class StartVideo : MonoBehaviour
 
     void beginVideo()
     {
-	DestroyObjects();
-
-
         //indicate that the video has been started, hide the instructions, and reveal the ball; start the video
         started = true;
         ball.SetActive(true);
@@ -98,3 +95,4 @@ public class StartVideo : MonoBehaviour
         	}
 	}
 }
+*/

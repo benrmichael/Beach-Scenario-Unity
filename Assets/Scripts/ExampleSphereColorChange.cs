@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tobii.G2OM;
 
-public class ExampleSphereColorChange : MonoBehaviour
+public class ExampleSphereColorChange : MonoBehaviour, IGazeFocusable
 {
     private Renderer SphereRenderer;
     private void Start()
@@ -17,9 +18,9 @@ public class ExampleSphereColorChange : MonoBehaviour
         {
             SphereRenderer.material.SetColor("_Color", Color.green);
         }
-	else
-	{
-	    SphereRenderer.material.SetColor("_Color", Color.red);   
-	}
+	    else
+	    {
+	        SphereRenderer.material.SetColor("_Color", Color.red);   
+	    }
     }
 }

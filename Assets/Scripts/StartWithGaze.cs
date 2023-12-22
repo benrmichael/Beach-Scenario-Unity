@@ -21,7 +21,6 @@ public class StartWithGaze : MonoBehaviour, IGazeFocusable
         {
             SphereRenderer.material.SetColor("_Color", Color.green);
         }
-        StartVideo.gazeStart = hasFocus;
-        Destroy(this.gameObject);
+        ScenarioLifeCycleManager.startedViaSphere = true;
     }
 }
